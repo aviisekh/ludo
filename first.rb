@@ -96,24 +96,24 @@ def process(id,p)
 	if not p.rel_stat()
 		while dice == 1 or dice == 6 
 			
-			if p.pos_stat==0				
+			if p.pos_stat == 0				
 				puts "Player released"
 				p.player_status(true,1,false)
 				
-				$board[0]=p.name()
+				$board[0] = p.name()
 				#puts p.name
 				puts "{\n#$board}"							
 			end	
 				
-			if p.pos_stat!=0
+			if p.pos_stat! = 0
 				
 				puts "\n****ROLL AGAIN****"
 				STDIN.getc
 				dice = 1+rand(6)
 				puts "##ROLL## =  #{dice}" 		
 				STDIN.getc
-				position= dice + p.pos_stat()
-				if position>100
+				position = dice + p.pos_stat()
+				if position > 100
 					return
 				end
 				
