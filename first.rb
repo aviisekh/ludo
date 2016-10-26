@@ -93,7 +93,7 @@ def process(id,p)
 	dice = 1+rand(6)
 	puts "##ROLL## = #{dice}"
 	#STDIN.getc
-	
+	#testing
 	if not p.rel_stat()
 		while dice == 1 or dice == 6 
 			
