@@ -109,7 +109,7 @@ def process(id,p)
 				
 				puts "\n****ROLL AGAIN****"
 				STDIN.getc
-				dice = 1+rand(6)
+				dice = 1 + rand(6)
 				puts "##ROLL## =  #{dice}" 		
 				STDIN.getc
 				position = dice + p.pos_stat()
@@ -117,25 +117,25 @@ def process(id,p)
 					return
 				end
 				
-				i=p.pos_stat()
+				i = p.pos_stat()
 				#check for upgrades
 				if $bottom.include?position
-					a=$bottom.index(position)
-					position=$bottom_up[a]
+					a = $bottom.index(position)
+					position = $bottom_up[a]
 					p.player_status(true,position,false)
 					puts "Upgraded"
 				end
 				
 				#check for downgrades
 				if $top.include?position
-					a=$top.index(position)
-					position=$top_down[a]
+					a = $top.index(position)
+					position = $top_down[a]
 					p.player_status(true,position,false)
 					puts "Downgraded"
 				end
 				
 				if $board[position-1].is_a?String
-					if id==1
+					if id == 1
 						#p2.player_status(false,0,false)
 						$delete = 2
 						puts "     ******* P2 DELETED *******"
@@ -148,7 +148,7 @@ def process(id,p)
 					end
 				end
 				
-				$board[$board.index(p.name())]=i
+				$board[$board.index(p.name())] = i
 				p.player_status(true,position,false)
 				
 				#check for winner
@@ -156,7 +156,7 @@ def process(id,p)
 					return
 				end	
 				
-				$board[position-1]=p.name()
+				$board[position-1] = p.name()
 				puts "{\n#$board}"
 						
 					
@@ -167,31 +167,31 @@ def process(id,p)
 	
 	
 	if p.rel_stat() and not p.win_stat()
-		while dice==1 or dice==6
-			position= dice + p.pos_stat()
-			if position>100
+		while dice == 1 or dice == 6
+			position = dice + p.pos_stat()
+			if position > 100
 				return
 			end
 			
-			i=p.pos_stat()
+			i = p.pos_stat()
 			#check for upgrades
 			if $bottom.include?position
-				a=$bottom.index(position)
-				position=$bottom_up[a]
-				p.player_status(true,position,false)
+				a = $bottom.index(position)
+				position = $bottom_up[a]
+				p.player_status(true, position, false)
 				puts "Upgraded"
 			end
 				
 			#check for downgrades
 			if $top.include?position
-				a=$top.index(position)
-				position=$top_down[a]
+				a = $top.index(position)
+				position = $top_down[a]
 				p.player_status(true,position,false)
 				puts "Downgraded"
 			end
 			
 			if $board[position-1].is_a?String
-				if id==1
+				if id == 1
 					#p2.player_status(false,0,false)
 					puts "******* P2 DELETED *******"
 					$delete = 2
@@ -212,11 +212,11 @@ def process(id,p)
 				return
 			end
 			
-			$board[position-1]=p.name()
+			$board[position-1] = p.name()
 			puts "{\n#$board}"
 			puts "\n**** ROLL AGAIN ****"
 			STDIN.getc
-			dice=1+rand(6)
+			dice = 1 + rand(6)
 			puts "##ROLL## =  #{dice}"
 			STDIN.getc
 			
@@ -224,30 +224,30 @@ def process(id,p)
 		
 		
 		
-		position= dice + p.pos_stat()
+		position = dice + p.pos_stat()
 		if position>100
 			return
 		end
 		
-		i=p.pos_stat()
+		i = p.pos_stat()
 		#check for upgrades
 		if $bottom.include?position
-			a=$bottom.index(position)
-			position=$bottom_up[a]
+			a = $bottom.index(position)
+			position = $bottom_up[a]
 			p.player_status(true,position,false)
 			puts "Upgraded"
 		end
 		
 		#check for downgrades
 		if $top.include?position
-			a=$top.index(position)
-			position=$top_down[a]
+			a = $top.index(position)
+			position = $top_down[a]
 			p.player_status(true,position,false)
 			puts "Downgraded"
 		end
 		
 		if $board[position-1].is_a?String
-			if id==1
+			if id == 1
 				#p2.player_status(false,0,false)
 				$delete = 2
 				puts "******* P2 DELETED *******"
@@ -259,7 +259,7 @@ def process(id,p)
 			end
 		end
 			
-		$board[$board.index(p.name())]=i
+		$board[$board.index(p.name())] = i
 		p.player_status(true,position,false)
 		
 		#check for winner
@@ -267,7 +267,7 @@ def process(id,p)
 			return
 		end
 		
-		$board[position-1]=p.name
+		$board[position-1] = p.name
 		puts "{\n#$board}"
 			
 		
@@ -278,7 +278,7 @@ end
 
 
 while not p1.win_stat() and not p2.win_stat()
-	if turner%2==0
+	if turner%2 == 0
 		p1_status = true
 		p2_status = false
 	else 
@@ -304,7 +304,7 @@ while not p1.win_stat() and not p2.win_stat()
 		$delete = 0	
 	end
 	
-	turner=turner+1
+	turner = turner + 1
 	STDIN.getc
 	
 end
