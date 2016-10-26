@@ -5,21 +5,20 @@ $bottom = [3,9,20,25,55]
 $bottom_up = [12, 53, 44, 92, 88]
 
 $top = [99,91,80,66,43]
-$top_down=[13,56,29,33,10]
+$top_down = [13,56,29,33,10]
 $delete = 0
 
-turner = 0 #one who decides whose turn is there
+turner = 0 #flag to decide whose turn is there
 p1_status = false
 p2_status = false
 	
 
 #Class declaration
-class Player
-	
+class Player	
 	def initialize (id, name, colour)
-		@player_id=id
-		@player_name=name
-		@player_colour=colour
+		@player_id = id
+		@player_name = name
+		@player_colour = colour
 	end
 	
 	def player_status(release_stat, position_stat, winner_status)
@@ -58,27 +57,27 @@ puts "\n****************************************** LUDO ************************
 puts "----------------------------------------------------------------------------------------------"
 print "Enter the name (Player 1) : "
 name1 = gets
-name1= name1.chomp
+name1 = name1.chomp
 
 print "Enter the name (Player 2) : "
 name2 = gets
-name2=name2.chomp
+name2 = name2.chomp
 
 puts "********************************** WELCOME TO THE GAME ***********************************"
 puts "                                         LETS MOVE"
 
 #Objects Created
-p1=Player.new("1", name1, "red")
+p1 = Player.new("1", name1, "red")
 p1.player_status(false,0,false)
 
 
-p2=Player.new("2", name2, "blue")
+p2 = Player.new("2", name2, "blue")
 p2.player_status(false,0,false)
 
 def is_winner(p,id)
-	if p.pos_stat==100
+	if p.pos_stat == 100
 		p.player_status(true,100,true)
-		$board[99]="#{p.name}"
+		$board[99] = "#{p.name}"
 		return true
 	
 	else return false
